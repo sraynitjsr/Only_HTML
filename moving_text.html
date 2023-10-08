@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .moving-text {
+    position: absolute;
+    font-size: 4em;
+    white-space: nowrap;
+    animation: moveLeftRight 10s linear infinite;
+  }
+
+  @keyframes moveLeftRight {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: calc(100% - 400px);
+    }
+    100% {
+      left: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="moving-text">This text moves left-to-right and reverse also</div>
+</body>
+</html>
