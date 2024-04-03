@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag and Drop Example</title>
+<style>
+    #dragzone {
+        width: 300px;
+        height: 200px;
+        border: 2px dashed #aaa;
+        text-align: center;
+        padding: 20px;
+    }
+    #droptarget {
+        width: 300px;
+        height: 200px;
+        border: 2px dashed #aaa;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div id="dragzone" draggable="true" ondragstart="drag(event)">
+    Drag me!
+</div>
+
+<div id="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Drop here!
+</div>
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+
+</body>
+</html>
